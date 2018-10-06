@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = webpackMerge(baseWebpackConfig, {
     mode: 'development',
+    devtool: 'inline-source-map',
     devServer: {
         contentBase: false,
         compress: false, // gzip压缩?

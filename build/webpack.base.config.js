@@ -5,18 +5,13 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin")
 module.exports = {
     context: path.resolve(__dirname, '../'),
     entry: {
-        'awk.editor': './src/index.js'
+        'awk.editor': './src/index.ts'
     },
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/
-            },
-            {
                 test: /\.js$/,
-                exclude: /node_modules/,
+                include: path.resolve(__dirname, "../src"),
                 use: {
                     loader: 'babel-loader',
                     options: {
@@ -26,7 +21,13 @@ module.exports = {
                 }
             },
             {
+                test: /\.tsx?$/,
+                include: path.resolve(__dirname, "../src"),
+                use: 'ts-loader'
+            },
+            {
                 test: /\.(css|scss)$/,
+                include: path.resolve(__dirname, "../src"),
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
@@ -40,6 +41,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                include: path.resolve(__dirname, "../src"),
                 use: {
                     loader: 'url-loader',
                     options: {
@@ -51,6 +53,7 @@ module.exports = {
             },
             {
                 test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+                include: path.resolve(__dirname, "../src"),
                 use: {
                     loader: 'url-loader',
                     options: {
@@ -62,6 +65,7 @@ module.exports = {
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                include: path.resolve(__dirname, "../src"),
                 use: {
                     loader: 'url-loader',
                     options: {
@@ -72,6 +76,9 @@ module.exports = {
                 }
             }
         ]
+    },
+    resolve: {
+      extensions: [ '.tsx', '.ts', '.js' ]
     },
     plugins: [
         /* 单独打包css（否则会打包进js） */
