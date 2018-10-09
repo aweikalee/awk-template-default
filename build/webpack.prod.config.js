@@ -7,7 +7,8 @@ const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = webpackMerge(baseWebpackConfig, {
-    mode: 'production',
+    mode: 'production', // production 或 development，影响压缩
+    //devtool: 'source-map', // 不设置时输出的模块以eval形式，设置后则基本是原文
     output: {
         path: path.join(__dirname, '../dist'),
         filename: '[name].js',
@@ -16,7 +17,8 @@ module.exports = webpackMerge(baseWebpackConfig, {
     plugins: [
         /* 调试用页面 */
         // new HtmlWebpackPlugin({
-        //     template: 'index.html'
+        //     template: 'index.html',
+        //     inject: 'head', // 将生成的js文件插入html的位置
         // }),
 
         /* 清空dist */

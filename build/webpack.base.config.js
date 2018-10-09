@@ -5,7 +5,12 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin")
 module.exports = {
     context: path.resolve(__dirname, '../'),
     entry: {
-        'awk.editor': './src/index.ts'
+        'awk': './src/index.ts' // 输出文件名： 入口文件
+    },
+    output: {
+        library: 'awk', // 输出的方法名
+        libraryExport: 'default', // 定义输出为入口文件里的 default
+        libraryTarget: 'umd',
     },
     module: {
         rules: [
