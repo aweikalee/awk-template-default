@@ -8,7 +8,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = webpackMerge(baseWebpackConfig, {
     mode: 'production', // production 或 development，影响压缩
-    //devtool: 'source-map', // 不设置时输出的模块以eval形式，设置后则基本是原文
+    // mode: 'development'
+    // devtool: 'source-map', // 不设置时输出的模块以eval形式，设置后则基本是原文
     output: {
         path: path.join(__dirname, '../dist'),
         filename: '[name].js',

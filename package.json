@@ -1,9 +1,14 @@
 {
   "name": "awk-template-default",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
+  "keywords": [
+      "awk-cli"
+  ],
   "author": "aweikalee",
   "private": true,
+  "license": "MIT",
+  "main": "./src/index.ts",
   "scripts": {
     "dev": "webpack-dev-server --config build/webpack.dev.config.js",
     "build": "webpack --config build/webpack.prod.config.js"

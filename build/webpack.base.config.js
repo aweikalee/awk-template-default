@@ -5,7 +5,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin")
 module.exports = {
     context: path.resolve(__dirname, '../'),
     entry: {
-        'awk': './src/index.ts' // 输出文件名： 入口文件
+        'awk': require('../package.json').main // 输出文件名： 入口文件
     },
     output: {
         library: 'awk', // 输出的方法名

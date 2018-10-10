@@ -14,7 +14,7 @@ $ awk init
 module.exports = {
     ...
     entry: {
-        'awk': './src/index.ts' // 修改'awk'为你想要输出的文件名
+        'awk': require('../package.json').main // 修改'awk'为你想要输出的文件名
     },
     output: {
         library: 'awk', // 修改'awk'为你想要输出的方法名
