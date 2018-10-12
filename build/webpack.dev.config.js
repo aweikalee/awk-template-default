@@ -35,7 +35,7 @@ const devConfig = webpackMerge(baseWebpackConfig, {
             compilationSuccessInfo: {
                 messages: [`已运行 http://${host}:${port}`],
             },
-            onErrors: true,
+            onErrors: false, // 是否隐藏错误详情
             clearConsole: true,
         }),
     ]
